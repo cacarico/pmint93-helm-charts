@@ -120,8 +120,9 @@ database:
     ## example format: $project:$region:$instance=tcp:$port
     ## Each connection must have a unique TCP port.
     instanceConnectionNames: []
-    ## Option to use a specific version of the *Cloud SQL Auth proxy* sidecar image.
+    ## Option to use a specific version and image of the *Cloud SQL Auth proxy* sidecar image.
     ## ref: https://console.cloud.google.com/gcr/images/cloudsql-docker/GLOBAL/gce-proxy
+    # sidecarImage: gcr.io/cloudsql-docker/gce-proxy
     # sidecarImageTag: latest
     ## ref: https://cloud.google.com/sql/docs/postgres/connect-kubernetes-engine#running_the_as_a_sidecar
     resources: {}
@@ -277,7 +278,7 @@ serviceAccount:
   # autoMount is deprecated in favor of automountServiceAccountToken
   # If you want to disable auto mount of Service Account Token then you can set the value to false;
   # https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#opt-out-of-api-credential-automounting
-  automountServiceAccountToken: false
+  automountServiceAccountToken: true
 
 resources:
   {}
